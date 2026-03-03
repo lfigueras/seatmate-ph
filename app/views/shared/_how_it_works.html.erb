@@ -1,0 +1,107 @@
+<section class="py-24 bg-gradient-to-b from-white to-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-block mb-4 px-6 py-2 bg-teal-50 rounded-full border border-teal-200">
+        <span class="text-teal-700 font-medium">Simple Process</span>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        How It Works
+      </h2>
+
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Book your van in four simple steps
+      </p>
+    </div>
+
+    <% steps = [
+      {
+        icon: "💬",
+        number: "01",
+        title: "Contact Us",
+        description: "Send us a message via Facebook Messenger with your travel plans",
+        color: "from-blue-400 to-cyan-400"
+      },
+      {
+        icon: "📝",
+        number: "02",
+        title: "Discuss Your Trip",
+        description: "Share details about your destination, date, and number of passengers",
+        color: "from-teal-400 to-emerald-400"
+      },
+      {
+        icon: "📅",
+        number: "03",
+        title: "Confirm Schedule",
+        description: "We'll provide pricing and confirm your booking details",
+        color: "from-emerald-400 to-green-400"
+      },
+      {
+        icon: "👍",
+        number: "04",
+        title: "Enjoy Your Ride",
+        description: "Sit back and relax as we take you to your destination safely",
+        color: "from-purple-400 to-pink-400"
+      }
+    ] %>
+
+    <div class="relative max-w-6xl mx-auto">
+
+      <!-- Desktop Connection Line -->
+      <div class="hidden lg:block absolute top-20 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-blue-200 via-teal-200 to-purple-200"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <% steps.each_with_index do |step, index| %>
+          <div class="relative">
+
+            <div class="flex flex-col items-center text-center">
+
+              <!-- Icon Container -->
+              <div class="relative mb-6">
+
+                <div class="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shadow-xl relative z-10 border-2 border-gray-100">
+
+                  <div class="absolute inset-3 bg-gradient-to-br <%= step[:color] %> rounded-2xl opacity-10"></div>
+
+                  <span class="text-5xl relative z-10">
+                    <%= step[:icon] %>
+                  </span>
+
+                </div>
+
+                <!-- Step Number -->
+                <div class="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br <%= step[:color] %> text-white rounded-full flex items-center justify-center font-bold shadow-lg z-20">
+                  <%= step[:number] %>
+                </div>
+
+              </div>
+
+              <!-- Content -->
+              <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+                <%= step[:title] %>
+              </h3>
+
+              <p class="text-gray-600 leading-relaxed max-w-xs">
+                <%= step[:description] %>
+              </p>
+
+            </div>
+
+            <!-- Mobile Connector -->
+            <% if index < steps.length - 1 %>
+              <div class="lg:hidden flex justify-center my-8">
+                <div class="w-1 h-16 bg-gradient-to-b <%= step[:color] %> rounded-full"></div>
+              </div>
+            <% end %>
+
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</section>

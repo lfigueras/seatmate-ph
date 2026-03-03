@@ -1,0 +1,79 @@
+<!-- Services -->
+<section id="services" class="py-20">
+  
+  <!-- Header Area -->
+  <div class="max-w-4xl mx-auto px-6 text-center mb-16">
+    
+    <!-- Badge -->
+    <div class="flex justify-center mb-6">
+      <div class="px-6 py-2 bg-teal-50 rounded-full border border-teal-200">
+        <span class="text-teal-700 font-medium">What We Offer</span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      Our Services
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Flexible van rental and land transfer solutions for all your travel needs
+    </p>
+
+  </div>
+
+  <!-- Cards -->
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  <% services = [
+    {
+      title: "Concert Transportation",
+      description: "Transfer services for concerts and events; pricing varies per km.",
+      bg_color: "bg-teal-100",
+      gradient: "from-teal-500 to-emerald-500",
+      icon: "🎵"
+    },
+    {
+      title: "Family & Team Outings",
+      description: "Van rentals for family trips, team buildings, and small groups.",
+      bg_color: "bg-amber-100",
+      gradient: "from-amber-500 to-orange-500",
+      icon: "🎉"
+    },
+    {
+      title: "Route-Based Pricing",
+      description: "Rates depend on pickup/dropoff locations; message us for a quote.",
+      bg_color: "bg-sky-100",
+      gradient: "from-sky-500 to-blue-500",
+      icon: "📍"
+    }
+  ] %>
+
+  <% services.each do |service| %>
+    <div class="group overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-teal-200 rounded-3xl bg-white">
+      
+      <div class="p-8 text-center">
+        
+        <!-- Icon Circle -->
+        <div class="mx-auto mb-6 w-24 h-24 <%= service[:bg_color] %> rounded-full flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-300">
+          
+          <div class="absolute inset-0 bg-gradient-to-br <%= service[:gradient] %> opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          
+          <span class="text-3xl relative z-10">
+            <%= service[:icon] %>
+          </span>
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+          <%= service[:title] %>
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed">
+          <%= service[:description] %>
+        </p>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+</section>
